@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ManagedTouristDetail" representedClassName="ManagedTouristDetail" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="memberSince" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="detailCache" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedTouristDetailCache" inverseName="detail" inverseEntity="ManagedTouristDetailCache"/>
+    </entity>
+    <entity name="ManagedTouristDetailCache" representedClassName="ManagedTouristDetailCache" syncable="YES">
+        <attribute name="url" optional="YES" attributeType="URI"/>
+        <relationship name="detail" maxCount="1" deletionRule="Cascade" destinationEntity="ManagedTouristDetail" inverseName="detailCache" inverseEntity="ManagedTouristDetail"/>
+    </entity>
+</model>

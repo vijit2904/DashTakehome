@@ -1,0 +1,17 @@
+/* 
+  ReadMe.strings
+  DashTakeHomeApp
+
+  Created by Vijit Munjal on 1/27/23.
+ 
+ I Used MVVM desing pattern and reason behinfd it as follows:-
+ 
+ the flexibility it provide, so can can refector without effection other component and test the app in isolation as well as a whole.
+ 
+ provide modularity and decoupling of the code, which enable to to write more test able code
+ 
+ it provide lots of reusablity both within the across projects in your organization
+ 
+ we can change user interface without having to refactor other logic in the code base
+ 
+*/

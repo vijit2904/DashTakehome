@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ManagedImageCache" representedClassName="ManagedImageCache" syncable="YES">
+        <attribute name="url" optional="YES" attributeType="URI"/>
+        <relationship name="imageData" maxCount="1" deletionRule="Cascade" destinationEntity="ManagedImageData" inverseName="imageCache" inverseEntity="ManagedImageData"/>
+    </entity>
+    <entity name="ManagedImageData" representedClassName="ManagedImageData" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary"/>
+        <relationship name="imageCache" maxCount="1" deletionRule="Cascade" destinationEntity="ManagedImageCache" inverseName="imageData" inverseEntity="ManagedImageCache"/>
+    </entity>
+</model>

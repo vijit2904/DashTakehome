@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22A400" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ManagedMuiltiMedia" representedClassName="ManagedMuiltiMedia" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="imageUrl" optional="YES" attributeType="URI"/>
+        <attribute name="mediaDescription" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="newsFeed" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedNewsFeed" inverseName="multiMedia" inverseEntity="ManagedNewsFeed"/>
+    </entity>
+    <entity name="ManagedNewsCache" representedClassName="ManagedNewsCache" syncable="YES">
+        <attribute name="url" attributeType="URI"/>
+        <relationship name="newsFeed" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ManagedNewsFeed" inverseName="newsCache" inverseEntity="ManagedNewsFeed"/>
+    </entity>
+    <entity name="ManagedNewsFeed" representedClassName="ManagedNewsFeed" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="location" attributeType="String"/>
+        <attribute name="noOfComments" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="pages" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="multiMedia" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="ManagedMuiltiMedia" inverseName="newsFeed" inverseEntity="ManagedMuiltiMedia"/>
+        <relationship name="newsCache" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedNewsCache" inverseName="newsFeed" inverseEntity="ManagedNewsCache"/>
+        <relationship name="user" maxCount="1" deletionRule="Cascade" destinationEntity="ManagedNewsUser" inverseName="newsFeed" inverseEntity="ManagedNewsUser"/>
+    </entity>
+    <entity name="ManagedNewsUser" representedClassName="ManagedNewsUser" syncable="YES">
+        <attribute name="profileImgUrl" optional="YES" attributeType="URI"/>
+        <attribute name="userName" optional="YES" attributeType="String"/>
+        <relationship name="newsFeed" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedNewsFeed" inverseName="user" inverseEntity="ManagedNewsFeed"/>
+    </entity>
+</model>
